@@ -1,0 +1,257 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match software engineering portfolio design brief */
+  --background: oklch(1 0 0); /* Pure white background */
+  --foreground: oklch(0.35 0.08 200); /* Cyan-800 equivalent for main text */
+  --card: oklch(0.98 0.02 200); /* Light cyan for dropdown backgrounds */
+  --card-foreground: oklch(0.4 0 0); /* Dark gray for dropdown text */
+  --popover: oklch(1 0 0); /* White tooltip background */
+  --popover-foreground: oklch(0.4 0 0); /* Dark gray tooltip text */
+  --primary: oklch(0.35 0.08 200); /* Cyan-800 for primary buttons */
+  --primary-foreground: oklch(1 0 0); /* White text on primary */
+  --secondary: oklch(0.55 0.15 260); /* Indigo accent color */
+  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
+  --muted: oklch(0.98 0.01 200); /* Very light cyan for muted sections */
+  --muted-foreground: oklch(0.4 0 0); /* Dark gray for muted text */
+  --accent: oklch(0.55 0.15 260); /* Indigo accent for links */
+  --accent-foreground: oklch(1 0 0); /* White text on accent */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.85 0.01 200); /* Light cyan border */
+  --input: oklch(0.97 0.01 200); /* Very light cyan input background */
+  --ring: oklch(0.55 0.15 260 / 0.5); /* Indigo focus ring with transparency */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.5rem; /* Slightly smaller radius for modern look */
+  --sidebar: oklch(0.98 0.01 200);
+  --sidebar-foreground: oklch(0.4 0 0);
+  --sidebar-primary: oklch(0.35 0.08 200);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.55 0.15 260);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.85 0.01 200);
+  --sidebar-ring: oklch(0.55 0.15 260 / 0.5);
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-space-grotesk: "Space Grotesk", serif;
+}
+
+.dark {
+  /* Updated dark mode colors to maintain the tech theme */
+  --background: oklch(0.1 0.02 200); /* Very dark cyan background */
+  --foreground: oklch(0.95 0.01 200); /* Light cyan foreground */
+  --card: oklch(0.15 0.02 200); /* Dark cyan card background */
+  --card-foreground: oklch(0.95 0.01 200); /* Light text on cards */
+  --popover: oklch(0.1 0.02 200); /* Dark popover background */
+  --popover-foreground: oklch(0.95 0.01 200); /* Light popover text */
+  --primary: oklch(0.95 0.01 200); /* Light primary in dark mode */
+  --primary-foreground: oklch(0.1 0.02 200); /* Dark text on primary */
+  --secondary: oklch(0.6 0.15 260); /* Brighter indigo in dark mode */
+  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
+  --muted: oklch(0.2 0.02 200); /* Muted dark cyan */
+  --muted-foreground: oklch(0.7 0.01 200); /* Lighter muted text */
+  --accent: oklch(0.6 0.15 260); /* Bright indigo accent */
+  --accent-foreground: oklch(1 0 0); /* White text on accent */
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.2 0.02 200); /* Dark cyan border */
+  --input: oklch(0.15 0.02 200); /* Dark input background */
+  --ring: oklch(0.6 0.15 260 / 0.5); /* Bright indigo focus ring */
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.15 0.02 200);
+  --sidebar-foreground: oklch(0.95 0.01 200);
+  --sidebar-primary: oklch(0.6 0.15 260);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.2 0.02 200);
+  --sidebar-accent-foreground: oklch(0.95 0.01 200);
+  --sidebar-border: oklch(0.2 0.02 200);
+  --sidebar-ring: oklch(0.6 0.15 260 / 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-space-grotesk);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  /* Adding floating and sliding animations for skills section background */
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-15px);
+    }
+    75% {
+      transform: translateY(-30px) translateX(5px);
+    }
+  }
+
+  @keyframes float-reverse {
+    0%,
+    100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(20px) translateX(-10px);
+    }
+    50% {
+      transform: translateY(10px) translateX(15px);
+    }
+    75% {
+      transform: translateY(30px) translateX(-5px);
+    }
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .animate-float-reverse {
+    animation: float-reverse 8s ease-in-out infinite;
+  }
+
+  .animate-slide-right {
+    animation: slide-right 8s linear infinite;
+  }
+
+  .animate-slide-left {
+    animation: slide-left 10s linear infinite;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 12s linear infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 9s linear infinite;
+  }
+}
